@@ -59,7 +59,9 @@ const BlogForm = ({ createBlog }) => {
             onChange={handleBlogChange}
           />
         </div>
-        <button type="submit">submit</button>
+        <button id="button-submit-blog" type="submit">
+          submit
+        </button>
       </form>
     </div>
   );

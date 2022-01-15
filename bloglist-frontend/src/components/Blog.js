@@ -15,13 +15,20 @@ const Blog = ({ blog, updateBlogLikes, deleteBlog, user }) => {
   };
 
   return (
-    <div style={blogStyle}>
-      {blog.title} by {blog.author}
-      <Togglable buttonLabelShow="show" buttonLabelHide="hide">
+    <div className="blog" style={blogStyle}>
+      <div className="title-and-author">
+        {blog.title} by {blog.author}
+      </div>
+      <Togglable
+        buttonShowId="button-togg-show"
+        buttonLabelShow="show"
+        buttonLabelHide="hide"
+      >
         <div>{blog.url}</div>
-        <div>
+        <div className="like">
           {blog.likes}
           <button
+            id="button-like"
             type="submit"
             onClick={() => {
               updateBlogLikes(blog.id);
@@ -33,6 +40,7 @@ const Blog = ({ blog, updateBlogLikes, deleteBlog, user }) => {
         <div>{blog.user.username}</div>
         {blog.user.username === user.username ? (
           <button
+            id="button-delete"
             onClick={() => {
               deleteConfirmation(blog.id);
             }}
